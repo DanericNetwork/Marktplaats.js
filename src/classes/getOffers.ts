@@ -55,7 +55,7 @@ export class Offers {
     return this;
   }
 
-  async fetchOffers(): Promise<MarktplaatsOffer[]> {
+  async fetch(): Promise<MarktplaatsOffer[]> {
     const limit = this.limit ?? 30;
     const offset = this.offset ?? 0;
     const searchInTitleAndDescription =
@@ -77,6 +77,7 @@ export class Offers {
         description: item.description,
         priceInfo: {
           priceCents: item.priceInfo.priceCents,
+          priceEuros: item.priceInfo.priceCents / 100,
         },
         pictures: {
           small: item.pictures[0].mediumUrl,
