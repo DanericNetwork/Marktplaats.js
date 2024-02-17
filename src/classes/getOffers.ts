@@ -63,6 +63,17 @@ export class Offers {
 
   /**
    *
+   * @param searchInTitleAndDescription
+   * @default true
+   * @returns
+   */
+  setSearchInTitleAndDescription(searchInTitleAndDescription: boolean): this {
+    this.searchInTitleAndDescription = searchInTitleAndDescription;
+    return this;
+  }
+
+  /**
+   *
    * @returns Promise<MarktplaatsOffer[]>
    */
   async fetch(): Promise<MarktplaatsOffer[]> {

@@ -16,6 +16,7 @@ async function main() {
     .setLimit(3) // the amount
     .setDistance(10000) // the distance is in meters
     .setOffset(30) // the offset to start from
+    .setSearchInTitleAndDescription(true) // search in title and description
     .setPostcode('3311BH'); // the postcode to search from
 
   const result = await offers.fetch();
