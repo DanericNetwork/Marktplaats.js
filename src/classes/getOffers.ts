@@ -4,6 +4,7 @@ interface MarktplaatsOffer {
   description: string;
   priceInfo: {
     priceCents: number;
+    priceEuros: number;
   };
   pictures: {
     small: string;
@@ -31,6 +32,11 @@ export class Offers {
     return this;
   }
 
+  /**
+   *
+   * @param offset the offset to start from
+   * @returns
+   */
   setOffset(offset: number): this {
     this.offset = offset;
     return this;
@@ -55,6 +61,10 @@ export class Offers {
     return this;
   }
 
+  /**
+   *
+   * @returns Promise<MarktplaatsOffer[]>
+   */
   async fetch(): Promise<MarktplaatsOffer[]> {
     const limit = this.limit ?? 30;
     const offset = this.offset ?? 0;
