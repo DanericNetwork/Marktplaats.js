@@ -67,7 +67,6 @@ export class Offers {
     }${postcode ? '&postcode=' + postcode : ''}${
       distanceMeters ? '&distanceMeters=' + distanceMeters : ''
     }&searchInTitleAndDescription=${searchInTitleAndDescription.toString()}&viewOptions=list-view`;
-    console.log(url);
     const response = await fetch(url);
     const data: any = await response.json();
     // map the data to the interface
