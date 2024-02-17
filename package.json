@@ -1,6 +1,6 @@
 {
-  "name": "typescript-npm-package-template",
-  "version": "0.0.0-development",
+  "name": "@danericc/marktplaats.js",
+  "version": "0.0.1-development",
   "description": "A template for creating npm packages using TypeScript and VSCode",
   "main": "./lib/index.js",
   "files": [
@@ -118,5 +118,8 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
