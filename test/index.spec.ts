@@ -1,4 +1,4 @@
-import { myPackage } from '../src';
+import { Offers, myPackage } from '../src';
 
 describe('index', () => {
   describe('myPackage', () => {
@@ -9,5 +9,15 @@ describe('index', () => {
 
       expect(result).toMatch(message);
     });
+  });
+});
+
+describe('Offers', () => {
+  it('should return a request object with the query', () => {
+    const query = 'bicycle';
+
+    const offers = new Offers(query);
+
+    expect(offers).toMatchObject({ query });
   });
 });
