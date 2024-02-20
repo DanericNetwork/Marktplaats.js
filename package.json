@@ -1,6 +1,6 @@
 {
   "name": "@danericc/marktplaats.js",
-  "version": "0.0.7-development",
+  "version": "0.0.8-development",
   "description": "A simple wrapper for the public marktplaats listings",
   "main": "./lib/index.js",
   "files": [
@@ -28,16 +28,6 @@
   "engines": {
     "node": ">=12.0"
   },
-  "keywords": [
-    "boilerplate",
-    "template",
-    "typescript",
-    "vscode",
-    "jest",
-    "commitizen",
-    "semantic-release",
-    "codecov"
-  ],
   "bugs": {
     "url": "https://github.com/DanericNetwork/Marktplaats.js/issues"
   },

@@ -77,17 +77,20 @@ export class Offers {
    * @returns Promise<MarktplaatsOffer[]>
    */
   async fetch(): Promise<MarktplaatsOffer[]> {
+    // Set the defaults if not set
     const limit = this.limit ?? 30;
     const offset = this.offset ?? 0;
     const searchInTitleAndDescription =
       this.searchInTitleAndDescription ?? true;
     const distanceMeters = this.distanceMeters ?? undefined;
     const postcode = this.postcode ?? undefined;
+    // make the url
     const url = `https://www.marktplaats.nl/lrp/api/search?limit=${limit}&offset=${offset}&query=${
       this.query
     }${postcode ? '&postcode=' + postcode : ''}${
       distanceMeters ? '&distanceMeters=' + distanceMeters : ''
     }&searchInTitleAndDescription=${searchInTitleAndDescription.toString()}&viewOptions=list-view`;
+    // fetch the data
     const response = await fetch(url);
     const data: any = await response.json();
     // map the data to the interface
