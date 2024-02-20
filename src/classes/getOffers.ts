@@ -30,10 +30,13 @@ export class Offers {
   private postcode?: string;
   private sortBy?: boolean;
   private sortOrder?: string;
+  private minPrice?: number;
+  private maxPrice?: number;
 
   constructor(query: string) {
     this.query = query;
     this.sortBy = false;
+    this.minPrice = 0;
   }
 
   setLimit(limit: number): this {
@@ -93,6 +96,26 @@ export class Offers {
 
   /**
    *
+   * @param minPrice min price in euros
+   * @returns
+   */
+  setMinPrice(minPrice: number): this {
+    this.minPrice = minPrice * 100;
+    return this;
+  }
+
+  /**
+   *
+   * @param maxPrice max price in euros
+   * @returns
+   */
+  setMaxPrice(maxPrice: number): this {
+    this.maxPrice = maxPrice * 100;
+    return this;
+  }
+
+  /**
+   *
    * @returns Promise<MarktplaatsOffer[]>
    */
   async fetch(): Promise<MarktplaatsOffer[]> {
@@ -110,9 +133,12 @@ export class Offers {
     const sorting = this.sortBy
       ? `&sortBy=SORT_INDEX&sortOrder=${this.sortOrder}`
       : '';
+    const priceRange = this.maxPrice
+      ? `&attributeRanges[]=PriceCents:${this.minPrice}:${this.maxPrice}`
+      : '';
 
     // make the url
-    const url = `https://www.marktplaats.nl/lrp/api/search${limit}${offset}${query}${postcode}${distanceMeters}${searchInTitleAndDescription}${sorting}&viewOptions=list-view`;
+    const url = `https://www.marktplaats.nl/lrp/api/search${limit}${offset}${query}${postcode}${distanceMeters}${searchInTitleAndDescription}${sorting}${priceRange}&viewOptions=list-view`;
     // fetch the data
     const response = await fetch(url);
     const data: any = await response.json();

@@ -19,6 +19,8 @@ async function main() {
     .setSearchInTitleAndDescription(true) // search in title and description
     .setPostcode('3311BH'); // the postcode to search from
     .setSort(SortOrder.Newest) // sort by newest
+    .setMinPrice(100) // the minimum price in euros
+    .setMaxPrice(1000); // the maximum price in euros
 
   const result = await offers.fetch();
   console.log(result);
