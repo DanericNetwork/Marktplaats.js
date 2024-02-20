@@ -1,6 +1,6 @@
 {
   "name": "@danericc/marktplaats.js",
-  "version": "0.0.10-development",
+  "version": "0.0.11-development",
   "description": "A simple wrapper for the public marktplaats listings",
   "main": "./lib/index.js",
   "files": [
