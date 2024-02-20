@@ -116,8 +116,6 @@ export class Offers {
     // fetch the data
     const response = await fetch(url);
     const data: any = await response.json();
-    console.log(url);
-    // console.log(data);
     // map the data to the interface
     let mapped = data.listings.map((item: any) => {
       return {
