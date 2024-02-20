@@ -9,7 +9,7 @@ npm install @danericc/marktplaats.js
 ## Example usage
 
 ```typescript
-import { Offers } from '@danericc/marktplaats.js';
+import { Offers, SortOrder } from '@danericc/marktplaats.js';
 
 async function main() {
   const offers = new Offers('Ford Ka 2014')
@@ -18,6 +18,7 @@ async function main() {
     .setOffset(30) // the offset to start from
     .setSearchInTitleAndDescription(true) // search in title and description
     .setPostcode('3311BH'); // the postcode to search from
+    .setSort(SortOrder.Newest) // sort by newest
 
   const result = await offers.fetch();
   console.log(result);
